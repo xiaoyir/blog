@@ -18,7 +18,6 @@ JDK 15为什么要废弃偏向锁？要解决这个问题，得先来复习一�
 
 对象头的大小取决于JVM的实现和运行的平台。在64位JVM中，对象头通常占用128位（16字节），其中Mark Word占64位，Class Pointer占64位。而在32位的系统中，Mark Word占32位。下面来看看64位虚拟机环境，不同锁状态下的Mark Word结构。
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Z39MZpFQTY26zdwVZutMyicn0vrXgkrkrDwViaXwsrPGZibzDd5npjLte35Vg9CTnRbN2NAiaa4ic8FMvOPOUOZ4uDQ/640?wx_fmt=png&from=appmsg)
 
 上图中提到了三种锁，偏向锁、轻量级锁、重量级锁，锁的不同级别是为了优化同步操作的性能而设计的，都是synchronized关键字的底层实现技术，它们各自有不同的特性和使用场景。
 
