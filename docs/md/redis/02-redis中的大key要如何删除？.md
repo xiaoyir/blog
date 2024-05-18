@@ -47,7 +47,7 @@ rdb dump.rdb -c memory --bytes 10240 -f redis.csv
 
 2、List/Hash/Set/ZSet 类型的key，DEL 时间复杂度是 O(M)，M 为元素数量，元素越多，耗时越久。
 
-![](https://files.mdnice.com/user/54278/2e35f52d-425d-4142-ad9d-0fa4c0263dcb.png)
+![img.png](../../img/redis/02/DEL.png)
 
 ### 一次性删除的后果
 

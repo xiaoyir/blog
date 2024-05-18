@@ -1,14 +1,10 @@
 * Java
-  * [特点](kl/base.md)
-  * [应用](kl/use.md)
-  * [偏向锁](kl/aa.md)
+  * [你背的“八股文”已经过时了，偏向锁早被JDK 15废弃了！](md/java/01-你背的“八股文”已经过时了，偏向锁早被JDK%2015废弃了！.md)
 * 数据库
   * [mysql]
-  * redis
     * 基础
     * 进阶
 
 * redis
-  * [大Key如何处理](kl/bigkey.md)
-  * [mybaitis]
+  * [redis中的大Key如何删除](md/redis/02-redis中的大key要如何删除？.md)
   
