@@ -14,13 +14,18 @@
   * [📝redis中的缓存击穿、穿透、雪崩](md/redis/01-不用背八股文！一文搞懂redis缓存击穿、穿透、雪崩！.md)
   * [📝redis中的大Key如何删除](md/redis/02-redis中的大key要如何删除？.md)
   * [📝redis缓存设计规范](md/redis/03-redis缓存设计规范.md)
+  * [📝Redis事务与lua脚本](md/redis/04-redis明明有事务，为什么大家更喜欢用lua脚本.md)
 
-* 📁sentinel
-  * [📝Sentinel实操](md/sentinel/01-Sentinel实操：微服务稳定性的流量守护神.md)
+* 📁中间件
+  * 📁sentinel
+    * [📝Sentinel实操](md/middleware/sentinel/01-Sentinel实操：微服务稳定性的流量守护神.md)
+  * 📁canal
+    * [📝canal数据同步](md/middleware/canal/01-数据库增量数据同步，用Canal组件好使吗？.md)
 
 * 📁Spring
   * [📝Spring Cache解析](md/spring/01-Spring%20Cache解析.md)
   * [📝实现Cacheable解析](md/spring/02-实现Cacheable注解.md)
+  * [📝手写RPC框架](md/spring/03-手写RPC框架.md)
 
 
 
