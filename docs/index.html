@@ -1,10 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<style>
-/*.sidebar-nav > ul > li > ul {*/
-/*  display: none; !* 默认隐藏二级目录 *!*/
-/*}*/
-</style>
 <head>
   <meta charset="UTF-8">
   <link rel="icon" href="/favicon.ico">
@@ -46,6 +41,14 @@
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-http.min.js"></script>
   <!--不蒜子计算器，统计自己网站的PV、UV，即用户访问量、页面访问量-->
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
+  <!-- Support docsify sidebar catalog expand and collapse -->
+  <script src="//unpkg.com/docsify-sidebar-collapse@1.3.5/dist/docsify-sidebar-collapse.min.js"></script>
+  <!-- docsify-pagination 页码 -->
+  <script src="//unpkg.com/docsify-pagination@2.10.1/dist/docsify-pagination.min.js"></script>
 </body>
+<style>
+  .sidebar-nav li {
+    cursor: pointer;
+  }
+</style>
 </html>
