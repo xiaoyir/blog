@@ -1,3 +1,5 @@
-# Headline
+# 程序员小义的博客网站
 
-> An awesome project.
+> 大家好，我是小义。这是一个Java知识库，分享小义自己的成长经验和技术干货，欢迎关注小义公众号实时接收最新文章推送。
+
+![img.png](img/common/公众号.jpg)

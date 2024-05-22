@@ -1,3 +1,5 @@
+# Spring正式弃用Java 8，还不赶紧学Java 21!
+
 ## Java 8被弃用了
 
 作为Java开发程序员，相信大家都对spring框架很熟悉，无论是搭建微服务还是开发web应用，都离不开spring全家桶。但是Spring官方最近整了个大活，他们弃用Java 8 了！
@@ -7,7 +9,7 @@ Spring Framework从6.0版本开始，IntelliJ IDEA从2023.3版本开始，Spring
 
 从Spring boot的脚手架官网中，地址https://start.spring.io/可以看出，spring initializr中确实没有了Java 8，真是时代抛弃你，招呼都不打一声。
 
-![img.png](../../img/other/02/img.png)
+![img.png](../../img/java/02/spring-init.png)
 ## 要不要换，该不该换
 
 不过大家也不用慌，可以改用阿里云的脚手架https://start.aliyun.com/，或者自己从0到1搭建适配java8版本的springboot项目都是可以的，相信这些也都难不倒各位大佬们。
