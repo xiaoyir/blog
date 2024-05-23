@@ -50,7 +50,9 @@ Star在GitHub上是一种认可与关注的标志。一个高Star数的项目通
 2.  使用GitHub Star History
 
 
-借助GitHub Star History站点，可以查看项目从发布至今的Star增长曲线。访问：https://star-history.com/，使用项目路径或地址进行查询。如查看java领域排行第一的CS-Notes项目，注意在搜索框中不要输入.git后缀，不然显示的就只有一个点。
+借助GitHub Star History站点，可以查看项目从发布至今的Star增长曲线。访问：https://star-history.com/
+
+使用项目路径或地址进行查询。如查看java领域排行第一的CS-Notes项目，注意在搜索框中不要输入.git后缀，不然显示的就只有一个点。
 
 ![img_2.png](img_2.png)
 

@@ -65,9 +65,11 @@ lua_shared_dict item_cache 150m;
 1.新建lua项目，需要安装完EmmyLua插件才会出现下图中的lua标志。
 
 ![img_1.png](img_1.png)
+
 2.项目新建完成后，点击界面左上角的run -> Edit configutations，配置nginx server。需要配置成我们第一步安装的OpenResty中的nginx。
 
 ![img_2.png](img_2.png)
+
 3.根目录下新建一个build.xml文件，文件代码如下，注意location="D:\\myUtils\\openresty-1.21.4.1-win64" 这个地方需要修改成openresty的安装目录：
 
 ```
