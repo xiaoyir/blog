@@ -1,3 +1,5 @@
+# redis究竟是单线程还是多线程
+
 Redis作为一个高性能的键值数据库，已经成为了众多开发者青睐的内存数据库解决方案。网上经常看到有人说redis是单线程的，那事实真的是这样吗？
 
 ## 单线程数据操作
@@ -18,12 +20,33 @@ Redis是以单线程模式著称的，在早期版本中，它的数据操作是
 
 首先来看一下下图中的五大I/O模型，然后思考一个问题，I/O多路复用是算单线程还是算多线程？
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Z39MZpFQTY0R8cLyPgdLe1fwiafIJN1lFMhabgWiaXgELyLTib2nmADe3UbdE1bcfCjEibSicibTsr56JSZtXbMicNTrQ/640?wx_fmt=png&from=appmsg)
+<table>
+    <tr>
+        <th></th>
+        <th>阻塞</th>
+        <th>非阻塞</th>
+    </tr>
+    <tr>
+        <td rowspan="2" style="font-weight: bold">同步</td>
+        <td>阻塞I/O模型</td>
+        <td>非阻塞I/O模型</td>
+    </tr>
+    <tr>
+        <td>I/O复用模型</td>
+        <td>信号驱动的I/O模型</td>
+    </tr>
+    <tr>
+        <td style="font-weight: bold">异步</td>
+        <td></td>
+        <td>异步I/O模型</td>
+    </tr>
+</table>
 
 IO多路复用顾名思义指的是单个线程能够监视多个文件描述符（FD），一旦某个FD就绪（例如，数据到来等待读取），相应的操作就可以进行，无需等待其他FD。在Linux中，实现这种机制的API主要有select, poll, 和epoll。这些调用将FD集中起来，由内核一起监视，当FD状态改变时，它们将通知用户进程。
 
 Redis就是采用的epoll机制来处理网络IO操作，让内核监听socket套接字。此时，Redis线程不会阻塞在某一个特定的监听或已连接套接字上，也就是说，不会阻塞在某一个特定的客户端请求处理上。epoll一旦监测到FD上有请求到达时，就会把触发的事件放进一个事件队列中，Redis单线程对该事件队列不断进行处理。正因为此，Redis可以同时和多个客户端连接并处理请求，从而提升并发量。
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Z39MZpFQTY0R8cLyPgdLe1fwiafIJN1lFCdArOLQUoLUUC0L1l2L9p96qNcelUb5YXhvz98UjQY9PiaTmica4bCXQ/640?wx_fmt=png&from=appmsg)
 
 在Redis 6.0及以后的版本，还引入了多线程来处理网络IO，但这个多线程处理只局限于命令的读取和响应客户端，执行命令仍然是在单线程中进行。这样的设计旨在保持Redis操作的原子性和顺序执行的特性，同时又可以利用多线程来提高网络IO操作的效率。
+
+[阅读原文](https://mp.weixin.qq.com/s?__biz=Mzk0NjQwNzI1MA==&mid=2247484624&idx=1&sn=372658647b0bc14849201d60018600f0&chksm=c307d6edf4705ffb064323a4663c6c25405b52e90c0e36bdbde1acb4276b74d4a0cc5d629b65&token=1234754994&lang=zh_CN#rd)
