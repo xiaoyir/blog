@@ -6,7 +6,9 @@
 
 ![img](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240525165838.png)
 
-上面展示的是它的基本工作原理图，相信很多人都知道大名鼎鼎的Canal，项目官网https://github.com/alibaba/canal，但是工作中不一定用到，今天小义就给大家实操演示一下。
+上面展示的是它的基本工作原理图，相信很多人都知道大名鼎鼎的Canal，项目官网https://github.com/alibaba/canal
+
+但是工作中不一定用到，今天小义就给大家实操演示一下。
 
 # 2.环境配置
 
