@@ -80,7 +80,7 @@ public class ExecutorConfig implements WebMvcConfigurer {
 
 假设总共有5000条订单，分5000/100=50个父线程去查订单详情，每个父线程再新建100/10=10个子线程去查运单号。所以父线程要等待子线程执行完然后组装订单信息。
 
-![img.png](img.png)
+![img](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240525165140.png)
 
 写个单元测试复现一下
 
@@ -191,7 +191,7 @@ public class ThreadPoolTest {
 
 orderExecutorService核心线程数是5，最大线程是10，队列长度3000。因为父任务过多，一小子就把5个核心线程全部占有了，其他父任务和子任务只能到队列中等候，只有队列塞满了，才会另外起工作线程。这时候所有核心线程因为要等待子任务完成才能结束，而子任务又切好躺在队列中无法执行，所以就造成了循环依赖，也就是死锁，线程池被阻塞，无法工作了。
 
-![img_1.png](../弃用Java8，赶紧学Java21/img_1.png)
+![image-20240525165424096](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240525165424.png)
 
 
 吃一堑长一智，总结是为了更好的提升，祝大家一起变得更强。

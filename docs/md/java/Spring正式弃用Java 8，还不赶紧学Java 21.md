@@ -9,7 +9,7 @@ Spring Framework从6.0版本开始，IntelliJ IDEA从2023.3版本开始，Spring
 
 从Spring boot的脚手架官网中，地址https://start.spring.io/可以看出，spring initializr中确实没有了Java 8，真是时代抛弃你，招呼都不打一声。
 
-![img.png](spring-init.png)
+![spring-init](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240525165018.png)
 ## 要不要换，该不该换
 
 不过大家也不用慌，可以改用阿里云的脚手架https://start.aliyun.com/，或者自己从0到1搭建适配java8版本的springboot项目都是可以的，相信这些也都难不倒各位大佬们。
