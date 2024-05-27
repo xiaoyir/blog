@@ -9,6 +9,6 @@
 > 网站不定时更新，欢迎扫码关注小义公众号实时接收最新文章推送。
 
 [//]: # (哈哈我是注释，不会在浏览器中显示。https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240525163642.jpg)
-[//]: # (use.sevencdn.com)
+[//]: # (https://javacool.oss-cn-shenzhen.aliyuncs.com)
 [//]: # (jsd.cdn.zzko.cn)
-![公众号](https://cdn.cxyxy.fun/xiaoyir/tuchuangku/main/img/xyr/20240525163642.jpg)
+![公众号](https://javacool.oss-cn-shenzhen.aliyuncs.com/img/xyr/20240525163642.jpg)
