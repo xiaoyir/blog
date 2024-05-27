@@ -30,7 +30,7 @@ replication buffer是主服务器上的一个缓冲区，用于存储将要发�
 
 这时候repl\_backlog\_buffer，主服务器上的另一个缓冲区，就派上了用场。它以循环的方式存储一定时间内的写命令。即使replication buffer中的数据已经被新数据覆盖，repl\_backlog\_buffer仍然保留着这些旧数据。这样，即使从服务器在断开连接一段时间后重新连接，它仍然可以从repl\_backlog\_buffer中获取到断开期间错过的命令，并更新自己的数据。
 
-![img](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240525180019.png)
+![img](https://javacool.oss-cn-shenzhen.aliyuncs.com/img/xyr/20240525180019.png)
 
 ### 哨兵机制：自动故障检测与恢复
 
@@ -65,7 +65,7 @@ Redis 实例会把自己的哈希槽信息发给和它相连接的其它实例�
 
 Redis 中的值通常非常大，包含数百万个元素的列表或排序集是很常见的。数据类型在语义上也很复杂。传输和合并这些类型的值可能是主要瓶颈，比较消耗性能。尽管MGET命令在Redis Cluster中不被支持，但用户可以通过其他方式来实现类似的功能。例如，可以使用Lua脚本在单个节点上执行多个GET操作，或者通过客户端逻辑将请求分发到正确的节点上。
 
-![img_1](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240525180236.png)
+![img_1](https://javacool.oss-cn-shenzhen.aliyuncs.com/img/xyr/20240525180236.png)
 
 ### 结语
 

@@ -21,7 +21,7 @@
 
 将时间窗口划分为多个小片段，允许一定程度的突发流量。
 
-![img](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240525175302.png)
+![img](https://javacool.oss-cn-shenzhen.aliyuncs.com/img/xyr/20240525175302.png)
 
 *   优点：可以应对短时间内的突发流量。
 
@@ -45,7 +45,7 @@
 
 允许在有可用令牌的情况下以任意速率传输数据。如果有足够的令牌，可以立即处理一个大的流量突发。当流量较小时，令牌可以在桶中积累。如果桶中令牌满了，则新生成的令牌将被丢弃。
 
-![img_1](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240525175312.png)
+![img_1](https://javacool.oss-cn-shenzhen.aliyuncs.com/img/xyr/20240525175312.png)
 
 *   优点：允许一定程度的突发流量，同时限制长时间内的流量。
 

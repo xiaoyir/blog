@@ -4,7 +4,7 @@
 
 相信大家对hashMap都不陌生，其底层结构是数组加链表加红黑树（红黑树这里不展开），数组默认大小为16，通过key的hash值可以实现从键到值的快速访问。
 
-![img](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240525174855.png)
+![img](https://javacool.oss-cn-shenzhen.aliyuncs.com/img/xyr/20240525174855.png)
 
 从hashMap源码可以看出，当数组容量超过装载阈值时，就会成倍扩容。对使用一张全局哈希表来保存所有键值对的redis来说，rehash同样如此。
 
@@ -12,7 +12,7 @@
 
 一个哈希表，就是一个数组，数组的每个元素称为一个哈希桶（dictEntity），每个哈希桶中保存了键值对数据（指向具体值的指针）。
 
-![img_1](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240525174905.png)
+![img_1](https://javacool.oss-cn-shenzhen.aliyuncs.com/img/xyr/20240525174905.png)
 
 众所周知，redis是用C语言写的。redis使用dict字典数据结构来存储哈希表，一个redis实例对应一个dict，来一起看看具体代码。
 
@@ -104,7 +104,7 @@ static int _dictExpandIfNeeded(dict *d)
 3.  在 rehash 进行期间，每次对字典执行增删改查操作时，程序在执行客户端指定操作之外，还会将 ht\[0\] 在 rehashidx 索引上的所有键值对rehash 到 ht\[1\]，然后将 rehashidx 的值加一。也就是从ht\[0\] 的第一个索引位置开始，将这个索引位置上的所有 entries 拷贝到ht\[1\] 中，接着依次处理下一个哈希桶。
 
 
-![img_2](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240525175215.png)
+![img_2](https://javacool.oss-cn-shenzhen.aliyuncs.com/img/xyr/20240525175215.png)
 
 4.  随着字典操作的不断执行，ht\[0\] 的所有键值对最终会全部移动到 ht\[1\]，此时程序会将 rehashidx 设为 -1，释放ht\[0\]的空间，表示 rehash 操作已完成。
 

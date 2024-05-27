@@ -51,7 +51,7 @@ public class TestController {
 
 3.多次调用name接口，检查cacheManager，可以发现spring Cache默认实现是concurrentMapCacheManager，里面是一个嵌套的hashMap，外层cacheMap用于存放value定义的"name"名称，内层store存放真正的缓存数据
 
-![img](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240525180633.png)
+![img](https://javacool.oss-cn-shenzhen.aliyuncs.com/img/xyr/20240525180633.png)
 4.store存放/name接口返回值的具体逻辑由cacheInterceptor拦截器实现，cacheInterceptor会执行CacheAspectSupport中的apply方法缓存接口返回值
 
 ```
@@ -396,4 +396,4 @@ public String testTtl(@RequestParam String id) {
 
 可以看到数据已经被存入redis中！
 
-![img_1](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240525180647.png)
+![img_1](https://javacool.oss-cn-shenzhen.aliyuncs.com/img/xyr/20240525180647.png)

@@ -4,7 +4,7 @@
 
 大家好，我是小义，今天来讲一下Canal。Canal是阿里巴巴开源的一款基于MySQL数据库binlog的增量订阅和消费组件，它的主要工作原理是伪装成MySQL slave，模拟MySQL slave的交互协议向MySQL Master发送dump协议。当MySQL master收到canal发送过来的dump请求后，开始推送binary log给canal，然后canal解析binary log，再发送到存储目的地，如MySQL，Kafka等。
 
-![img](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240525165838.png)
+![img](https://javacool.oss-cn-shenzhen.aliyuncs.com/img/xyr/20240525165838.png)
 
 上面展示的是它的基本工作原理图，相信很多人都知道大名鼎鼎的Canal，项目官网https://github.com/alibaba/canal
 
@@ -20,7 +20,7 @@
 
 首先得安装好canal支持下的mysql版本，本次安装的是mysql-5.7.31。通过which mysql命令可查看mysql具体是在哪个目录，比如是/usr/local/mysql/bin/mysql 这个路径。接着执行/usr/local/mysql/bin/mysql --verbose --help | grep -A 1 'Default options' 命令可查看 mysql 配置文件加载顺序，如下图所示。
 
-![img_1](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240525165920.png)
+![img_1](https://javacool.oss-cn-shenzhen.aliyuncs.com/img/xyr/20240525165920.png)
 
 这个信息的意思是说服务器首先读取的是 /etc/my.cnf 文件，如果前一个文件不存在则继续读 /etc/mysql/my.cnf 文件，依此类推，如若还不存在便会去读~/.my.cnf文件。
 
@@ -28,7 +28,7 @@
 
 mysql需要先开启 Binlog 写入功能，配置 binlog-format 为 ROW 模式，my.cnf 文件末包含以下两行，表示会加载/etc/mysql/conf.d/和/etc/mysql/mysql.conf.d/目录下的配置文件。
 
-![img_2](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240525165934.png)
+![img_2](https://javacool.oss-cn-shenzhen.aliyuncs.com/img/xyr/20240525165934.png)
 
 依据目录，给/etc/mysql/mysql.conf.d/mysqld.cnf文件添加如下配置：
 ```
@@ -43,7 +43,7 @@ server_id=1 # 配置 MySQL replaction 需要定义，不要和 canal 的 slaveId
 
 用mysql -u root -p 命令登录MySQL，创建新的用户，并授权。
 
-![img_3](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240525170043.png)
+![img_3](https://javacool.oss-cn-shenzhen.aliyuncs.com/img/xyr/20240525170043.png)
 
 最好授权所有权限：grant all privileges on _._ to 'canal'@'%' identified by 'Canal@123456'
 
@@ -51,7 +51,7 @@ server_id=1 # 配置 MySQL replaction 需要定义，不要和 canal 的 slaveId
 
 最后使用service mysql restart命令重启服务。show VARIABLES like 'log\_bin'可查看binlog是否已开启。show master status展示正在写入的binlog文件。
 
-![img_4](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240525170054.png)
+![img_4](https://javacool.oss-cn-shenzhen.aliyuncs.com/img/xyr/20240525170054.png)
 
 ## 2.2 canal部署
 
@@ -222,7 +222,7 @@ PRIMARY KEY (`id`) USING BTREE
 ```
 依次执行在navicat执行sql插入和更新，打印结果如下，cana能正常监听binlog变化，验证成功，可喜可贺！
 
-![img_5](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240525170113.png)
+![img_5](https://javacool.oss-cn-shenzhen.aliyuncs.com/img/xyr/20240525170113.png)
 
 # 3.同步MQ与缓存
 
@@ -557,15 +557,15 @@ public class TestHolderConsumer extends AbstractCanalRocketMqRedisService<CodeHo
 
 启动项目进行验证，修改code\_holder表的数据，如添加type=1,code=dd的一条数据。查看redis可以看到对应的缓存：
 
-![img_6](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240525170137.png)
+![img_6](https://javacool.oss-cn-shenzhen.aliyuncs.com/img/xyr/20240525170137.png)
 
 更新该条数据，重新查看：
 
-![img_7](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240525170147.png)
+![img_7](https://javacool.oss-cn-shenzhen.aliyuncs.com/img/xyr/20240525170147.png)
 
 删除该条数据，redis中也会删除该缓存：
 
-![img_8](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240525170155.png)
+![img_8](https://javacool.oss-cn-shenzhen.aliyuncs.com/img/xyr/20240525170155.png)
 
 至此，Canal成功利用mq将mysql数据同步至redis。
 

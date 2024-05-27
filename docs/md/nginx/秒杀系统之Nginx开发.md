@@ -17,7 +17,7 @@ Nginx 是由一个 master 进程和多个 worker 进程（可配置）来配合�
 
 以下是nginx配置文件nginx.conf的结构图：
 
-![img](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240525173034.png)
+![img](https://javacool.oss-cn-shenzhen.aliyuncs.com/img/xyr/20240525173034.png)
 *   全局模块配置：这里一般配置 Nginx 的进程数、日志目录与级别、CPU 绑核等；
 
 *   events 模块配置：主要配置 Nginx 使用的工作模型，进程连接数限制等；
@@ -64,11 +64,11 @@ lua_shared_dict item_cache 150m;
 
 1.新建lua项目，需要安装完EmmyLua插件才会出现下图中的lua标志。
 
-![img_1](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240525173052.png)
+![img_1](https://javacool.oss-cn-shenzhen.aliyuncs.com/img/xyr/20240525173052.png)
 
 2.项目新建完成后，点击界面左上角的run -> Edit configutations，配置nginx server。需要配置成我们第一步安装的OpenResty中的nginx。
 
-![img_2](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240525173107.png)
+![img_2](https://javacool.oss-cn-shenzhen.aliyuncs.com/img/xyr/20240525173107.png)
 
 3.根目录下新建一个build.xml文件，文件代码如下，注意location="D:\\myUtils\\openresty-1.21.4.1-win64" 这个地方需要修改成openresty的安装目录：
 
@@ -116,10 +116,10 @@ lua_shared_dict item_cache 150m;
 
 4.选择idea右侧Ant Build，选择刚刚配置的build.xml文件，最后点击OK：
 
-![img_3](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240525173543.png)
+![img_3](https://javacool.oss-cn-shenzhen.aliyuncs.com/img/xyr/20240525173543.png)
 5.在nginx中配置Run Ant target，选择dist。另外由于ant需要JDK环境，所以需要指定项目的JDK版本。选择File->Project Structure，Project选择JDK1.8。
 
-![img_4](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240525173629.png)
+![img_4](https://javacool.oss-cn-shenzhen.aliyuncs.com/img/xyr/20240525173629.png)
 ###   
 
 ### **1.3 运行与测试**
@@ -165,9 +165,9 @@ main()
 
 3.最后项目整体结构大致如下，点击右上角的nginx运行程序。
 
-![img_5](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240525173737.png)
+![img_5](https://javacool.oss-cn-shenzhen.aliyuncs.com/img/xyr/20240525173737.png)
 4.访问页面验证，成功返回。
-![img_7](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240525173906.png)
+![img_7](https://javacool.oss-cn-shenzhen.aliyuncs.com/img/xyr/20240525173906.png)
 
 ## **3\. 功能扩展**
 
@@ -272,7 +272,7 @@ server {
 
 下面通过模拟用户抢购商品下单时的场景，利用user_id限流，实现nginx结合lua的二次开发。交互时序图大致如下：
 
-![img_8](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240525174010.png)
+![img_8](https://javacool.oss-cn-shenzhen.aliyuncs.com/img/xyr/20240525174010.png)
 1.配置set_common_var.lua脚本文件。
 
 ```
@@ -371,14 +371,14 @@ server {
 
 这里根据user_id设置了限流规则，配置了四个location，访问的是静态页面，实际开发中应代理至后台。
 
-![queryUrl](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240525174104.png)
+![queryUrl](https://javacool.oss-cn-shenzhen.aliyuncs.com/img/xyr/20240525174104.png)
 最后整体项目结构如下，项目地址https://github.com/xiaoyir/demo-nginx.git
 
-![img_9](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240525174031.png)
+![img_9](https://javacool.oss-cn-shenzhen.aliyuncs.com/img/xyr/20240525174031.png)
 使用postman进行验证，访问query请求成功返回security token：st=aaa42296669b958c3cee6c0475c8093e
 
 
 请求头添加返回的token，访问prePage请求，成功返回page页面。
 
-![img_10](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240525174041.png)
+![img_10](https://javacool.oss-cn-shenzhen.aliyuncs.com/img/xyr/20240525174041.png)
 

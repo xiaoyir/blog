@@ -5,7 +5,7 @@
 项目地址：https://github.com/alibaba/Sentinel，
 总体架构图如下:
 
-![img](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240525172753.png)
+![img](https://javacool.oss-cn-shenzhen.aliyuncs.com/img/xyr/20240525172753.png)
 下来一起来简单实操体验一下
 
 ## 1、docker部署
@@ -45,7 +45,7 @@
 
 http://localhost:8858，账号/密码：sentinel/sentinel
 
-![img_2](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240525172818.png)
+![img_2](https://javacool.oss-cn-shenzhen.aliyuncs.com/img/xyr/20240525172818.png)
 ## 2、Spring整合
 
 1.  maven依赖
@@ -91,7 +91,7 @@ public class TestController {
 
 启动项目成功后在sentinel控制台显示如下，新建流控规则，单机阙值设置大于0，如1则表示1s内只能访问一次。
 
-![img_1](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240525172830.png)
+![img_1](https://javacool.oss-cn-shenzhen.aliyuncs.com/img/xyr/20240525172830.png)
 资源名和@SentinelResource注解定义的一样，都为"fall"时，触发限流页面返回：Whitelabel Error Page
 
 

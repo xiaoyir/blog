@@ -4,7 +4,7 @@
 
 给大家丢个图就明白了，上面是基本类型，下面是底层结构。像有序集合Sorted Set就用到了压缩列表和跳表。
 
-![img](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240525175907.png)
+![img](https://javacool.oss-cn-shenzhen.aliyuncs.com/img/xyr/20240525175907.png)
 
 现在知道面试官为啥喜欢问redis底层数据结构跳表之类的了吧，原来知识点都在这呢，还不赶紧来复习一下。
 
@@ -12,7 +12,7 @@
 
 在介绍SDS之前，得先对redis有个基本认知，即redis是一个kv键值数据库，由一张大的哈希表组成，存储的每个字典条目（dictEntry）都是一组kv键值对，dictEntry结构中有三个8字节的指针，分别指向key、value 以及下一个dictEntry，三个指针共 24 字节。key和value都是redis对象（redisObject）。
 
-![img_6](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240525175920.png)
+![img_6](https://javacool.oss-cn-shenzhen.aliyuncs.com/img/xyr/20240525175920.png)
 
 
 一个redisObject会包含一个8B的元数据信息及一个8B的指针。具体来讲，8字节的元数据可能包括如下信息：
@@ -34,15 +34,15 @@ String数据类型背后使用的是自定义的动态字符串类型，也就�
 
 1.  int编码：当保存的是 Long 类型整数时，RedisObject 中的指针就直接赋值为整数数据了，这样就不用额外的指针再指向整数了，节省了指针的空间开销。
 
-![img_2](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240525175929.png)
+![img_2](https://javacool.oss-cn-shenzhen.aliyuncs.com/img/xyr/20240525175929.png)
 
 2.  embstr编码：当保存的是字符串数据，并且字符串小于等于 44 字节时，RedisObject 中的元数据、指针和 SDS 是一块连续的内存区域，这样就可以避免内存碎片。
 
-![img_3](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240525175937.png)
+![img_3](https://javacool.oss-cn-shenzhen.aliyuncs.com/img/xyr/20240525175937.png)
     
 3.  raw编码：当字符串大于 44 字节时，SDS 的数据量就开始变多了，Redis 就不再把 SDS 和 RedisObject 布局在一起了，而是会给 SDS 分配独立的空间，并用指针指向 SDS 结构。
 
-![img_4](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240525175944.png)
+![img_4](https://javacool.oss-cn-shenzhen.aliyuncs.com/img/xyr/20240525175944.png)
 
 
 ### 二、压缩列表
@@ -65,7 +65,7 @@ String数据类型背后使用的是自定义的动态字符串类型，也就�
 
 像下面这一个有序列表，3，7，11，19，22，26，37。不用跳表需要查找6次，而利用跳表建立的索引，只需要比较4次，时间复杂度可以从原来的O（N）降到O（logN）。
 
-![img_5](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240525175952.png)
+![img_5](https://javacool.oss-cn-shenzhen.aliyuncs.com/img/xyr/20240525175952.png)
 
 ### 总结
 

@@ -9,7 +9,7 @@ Typora 是一款支持实时渲染的 Markdown 编辑器，它允许用户在编
 ### 下载
 首先需要从官网下载安装包，地址https://typoraio.cn/
 
-![img](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240526181911.png)
+![img](https://javacool.oss-cn-shenzhen.aliyuncs.com/img/xyr/20240526181911.png)
 
 依照提示安装，选择创建桌面快捷方式，最后去除勾选 Launch Typora ，点击 Finish，先不用启动。
 
@@ -36,16 +36,16 @@ License for you: xxx
 
 按Windows+R打开运行窗口，输入regedit打开注册表，找到Typora，然后在Typora上右键，点权限，选中Administrtors，把权限全部设置为允许。点击确定之后再回来重新激活typora就可以了。
 
-![img](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240526181943.png)
+![img](https://javacool.oss-cn-shenzhen.aliyuncs.com/img/xyr/20240526181943.png)
 
 ## 图像偏好设置
 点击typora界面左上角的文件，选择偏好设置，点击图像，上传服务设定为PicGo，记得提前安装好PicGo和配置图床服务。按下图中的选项设置好配置。
 
-![img](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240526182012.png)
+![img](https://javacool.oss-cn-shenzhen.aliyuncs.com/img/xyr/20240526182012.png)
 ## 图片验证
 在typora随便新建个md文件，直接把图片复制粘贴，PicGo会自动将图片上传至图床，然后typora将转换后的url写入到文件中，图片正常展示，非常方便快捷。
 
-![](https://raw.githubusercontent.com/xiaoyir/tuchuangku/main/img/xyr/20240526181732.png)
+![](https://javacool.oss-cn-shenzhen.aliyuncs.com/img/xyr/20240526181732.png)
 
 ## 结语
 图片秒传后，写文章一下子就舒畅了许多，小义习惯在typora写完博客后保存，在idea用git提交，希望能够对大家有所帮助。
